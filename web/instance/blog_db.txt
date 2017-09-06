@@ -1,0 +1,10 @@
+# ---------- No console entrar e fazer modificações de usuario --------------
+sudo -u postgres psql postgres
+
+# ---------- Para criar banco ----------
+blog-docker/web$ python instance/create_db.py
+Conectar ao servidor no pgadmin: blog_db,localhost,5432,postgres,lexbim95
+
+# ---------- Para migrar as modificações ------------
+python manage.py db migrate
+python manage.py db upgrade
