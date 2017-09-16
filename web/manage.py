@@ -1,5 +1,5 @@
-from trouble.app import manager
-from main import *
+from project.app import manager
+from run import *
 
 
 if __name__ == '__main__':
