@@ -4,8 +4,12 @@ from project.app import app
 from project.models import *
 
 
-@app.route('/')
+@app.route('/index')
 def index():
+    return render_template('index.html')
+
+@app.route('/')
+def home():
     return render_template('index.html')
 
 @app.route('/blank')
@@ -43,10 +47,6 @@ def grid():
 @app.route('/panels-wells')
 def panels_wells():
     return render_template('panels-wells.html')
-
-@app.route('/homepage')
-def homepage():
-    return render_template('homepage.html')
 
 @app.route('/tables')
 def tables():
