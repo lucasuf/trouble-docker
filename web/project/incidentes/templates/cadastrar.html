@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>PoP-TroubleTM | Gerenciador de Incidentes</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../../static/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../../static/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../../static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!-- BEGIN NAVIGATION BAR -->
+        {% block content %}
+            {% include "include/navigation_bar.html" %}
+        {% endblock %}
+        <!-- END NAVIGATION BAR -->
+        
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header">Incidentes | Cadastrar | Bilhete de reparo</h3>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                
+                <!-- /.col-lg-12 -->
+                <div class="col-lg-12">
+                    <!-- CAMPOS BILHETE -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Campos Bilhete
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Número do Bilhete</label>
+                                            <input class="form-control">                   
+                                            <p class="help-block">Insira o número do bilhete</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Data de abertura</label>
+                                            <input class="form-control" placeholder="DD:MM:AAAA">
+                                            <p class="help-block">Data de abertura do bilhete</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Hora de abertura</label>
+                                            <input class="form-control" placeholder="HH:MM 24h">
+                                            <p class="help-block">Hora de abertura bilhete</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Status</label>
+                                            <select class="form-control">
+                                                <option>Aberto</option>
+                                                <option>Fechado</option>
+                                                <option>Encerrado</option>
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-lg-4">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Data Fechamento</label>
+                                            <input class="form-control" placeholder="DD:MM:AAAA">
+                                            <p class="help-block">Data de fechamento do bilhete</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Hora de Fechamento</label>
+                                            <input class="form-control" placeholder="HH:MM 24h">
+                                            <p class="help-block">Hora de fechamento do bilhete</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>SLA Fechamento</label>
+                                            <select class="form-control">
+                                                <option>12h</option>
+                                                <option>24h</option>
+                                                <option>48h</option>
+                                            </select>
+                                        </div> 
+                                        <div class="form-group">
+                                            <label>Pendencias</label>
+                                            <textarea class="form-control" rows="3"></textarea>
+                                        </div>                                                                             
+                                    </form>
+                                </div>
+                                <!-- /.col-lg-4 (nested) -->
+                                <div class="col-lg-4">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Data de Encerramento</label>
+                                            <input class="form-control" placeholder="DD:MM:AAAA">
+                                            <p class="help-block">Data de encerramento do bilhete</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Hora de Encerramento</label>
+                                            <input class="form-control" placeholder="HH:MM 24h">
+                                            <p class="help-block">Hora de encerramento do bilhete</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>SLA Encerramento</label>
+                                            <select class="form-control">
+                                                <option>12h</option>
+                                                <option>24h</option>
+                                                <option>48h</option>
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel-default -->
+                </div>
+                <div class="col-lg-12">
+                    <!-- CAMPOS BILHETE -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Campos Atendimento
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Atendente</label>
+                                            <input class="form-control">                   
+                                            <p class="help-block">Insira nome do atendente</p>
+                                        </div>
+                                        
+                                    </form>
+                                </div>
+                                <div class="col-lg-4">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Protocolo</label>
+                                            <input class="form-control">
+                                            <p class="help-block">Insira o protocolo de atendimento</p>
+                                        </div>                                                                                                                     
+                                    </form>
+                                </div>
+                                <!-- /.col-lg-4 (nested) -->
+                                <div class="col-lg-4">
+                                    <form role="form">
+                                     <div class="form-group">
+                                            <label>Tipo de manutenção</label>
+                                            <select class="form-control">
+                                                <option>Corretiva</option>
+                                                <option>Preventiva</option>
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-lg-12">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Causa da ocorrência</label>
+                                            <textarea class="form-control" placeholder="Descrição da causa da ocorrência" rows="3" ></textarea> 
+                                        </div>
+                                        
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel-default -->
+                </div>
+                <div class="col-lg-12">
+                    <!-- CAMPOS LOCAL -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Campos Local
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Rua</label>
+                                            <input class="form-control">                   
+                                        </div>
+                                        
+                                    </form>
+                                </div>
+                                <div class="col-lg-4">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Bairro</label>
+                                            <input class="form-control">
+                                        </div>                                                                                                                     
+                                    </form>
+                                </div>
+                                <!-- /.col-lg-4 (nested) -->
+                                <div class="col-lg-4">
+                                    <form role="form">
+                                     <div class="form-group">
+                                            <label>Cidade</label>
+                                            <input class="form-control">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-lg-4">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Localização</label>
+                                            <input class="form-control" placeholder="Coordenadas geográficas">
+                                        </div>
+                                        
+                                    </form>
+                                </div>
+                                <div class="col-lg-12">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Observações do Local</label>
+                                            <textarea class="form-control" placeholder="Observações úteis acerca do local do incidente" rows="3" ></textarea>
+                                        </div>
+                                        
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel-default -->
+                </div>
+                <div class="col-lg-12">
+                    <!-- CAMPOS Parecer -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Campos Parecer
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Fiscal de Campo</label>
+                                            <input class="form-control" placeholder="Nome fiscal de campo">
+                                        </div>                   
+                                    </form>
+                                </div>
+                                <div class="col-lg-6">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Parecer Fiscal de Campo</label>
+                                            <input class="form-control" placeholder="Parecer do fiscal de campo">
+                                        </div>                   
+                                    </form>
+                                </div>
+                                <!-- /.col-lg-4 (nested) -->
+                                <div class="col-lg-6">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Fiscal de Administrativo</label>
+                                            <input class="form-control" placeholder="Nome fiscal administrativo">
+                                        </div>                   
+                                    </form>
+                                </div>
+                                <div class="col-lg-6">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Parecer Fiscal Administrativo</label>
+                                            <input class="form-control" placeholder="Parecer do fiscal administrativo">
+                                        </div>                   
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel-default -->
+                </div>
+                <div class="col-lg-12">
+                    <!-- CAMPOS informações de servico -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Informações de Serviço
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Data de Inicio do Serviço</label>
+                                            <input class="form-control" placeholder="DD:MM:AAAA">
+                                        </div>                 
+                                    </form>
+                                </div>
+                                <div class="col-lg-6">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Hora de Inicio do Serviço</label>
+                                            <input class="form-control" placeholder="HH:MM 24h">
+                                        </div>               
+                                    </form>
+                                </div>
+                                <div class="col-lg-4">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Data de Finalização do Serviço</label>
+                                            <input class="form-control" placeholder="DD:MM:AAAA">
+                                        </div>                 
+                                    </form>
+                                </div>
+                                <div class="col-lg-4">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Hora de Finalização do Serviço</label>
+                                            <input class="form-control" placeholder="HH:MM 24h">
+                                        </div>               
+                                    </form>
+                                </div>
+                                <div class="col-lg-4">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Tempo Decorrido</label>
+                                            <input class="form-control" placeholder="HH:MM 24h">
+                                        </div>               
+                                    </form>
+                                </div>
+                                <div class="col-lg-4">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Equipe de Lançamento</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>Equipe 1
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Equipe 2
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">Equipe 3
+                                                </label>
+                                            </div>
+                                        </div>         
+                                    </form>
+                                </div>
+                                <div class="col-lg-4">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Equipe de Fusão</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>Equipe 1
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Equipe 2
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">Equipe 3
+                                                </label>
+                                            </div>
+                                        </div>         
+                                    </form>
+                                </div>
+                                <div class="col-lg-4">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Condições climáticas</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>Chuvoso
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Ensolarado
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">Nublado
+                                                </label>
+                                            </div>
+                                        </div>         
+                                    </form>
+                                </div>
+                                <div class="col-lg-4">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Técnico de Medição</label>
+                                            <input class="form-control" placeholder="Nome do técnico">
+                                        </div>               
+                                    </form>
+                                </div>
+                                <div class="col-lg-4">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Supervisor</label>
+                                            <input class="form-control" placeholder="Nome do supervisor de serviço">
+                                        </div>               
+                                    </form>
+                                </div>
+                                <div class="col-lg-6">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Descrição da Ocorrência</label>
+                                            <textarea class="form-control" placeholder="Descrição fornecida pela equipe acerca da ocorrência" rows="3" ></textarea>
+                                        </div>
+                                        
+                                    </form>
+                                </div>
+                                 <div class="col-lg-6">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Resumo do serviço</label>
+                                            <textarea class="form-control" placeholder="Resumo do serviço feito" rows="3" ></textarea>
+                                        </div>
+                                        
+                                    </form>
+                                </div>
+                                <div class="col-lg-6">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Postes Envolvidos</label>
+                                            <textarea class="form-control" rows="3" ></textarea>
+                                        </div>
+                                        
+                                    </form>
+                                </div>
+                                
+                                <div class="col-lg-12">
+                                    <a class="btn btn-default btn-lg btn-block" target="_blank" href="#">Salvar</a>
+                                </div>
+                                <div class="col-lg-12">
+                                    <a class="btn btn-default btn-lg btn-block" target="_blank" href="#">Cancelar</a>
+                                </div>
+
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel-default -->
+                </div>
+               
+            </div>
+            <!-- /.row -->                                
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../../static/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../../static/vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../../static/dist/js/sb-admin-2.js"></script>
+
+</body>
+
+</html>

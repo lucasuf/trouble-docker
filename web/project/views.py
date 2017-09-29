@@ -12,6 +12,11 @@ def index():
 def home():
     return render_template('index.html')
 
+# --- INCIDENTES ---
+#@app.route('/incidentes/cadastrar')
+#def cadastrar():
+#    return render_template('cadastrar.html')
+
 @app.route('/blank')
 def blank():
     return render_template('blank.html')
