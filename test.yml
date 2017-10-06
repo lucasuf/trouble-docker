@@ -1,0 +1,16 @@
+#docker-compose.override.yml
+
+web:
+  build: ./web
+  ports:
+    - "5000:5000"
+  environment:
+    - FLASK_APP=manage.py
+    - FLASK_DEBUG=1
+  volumes:
+    - ./web/:/usr/src/app/web/project
+  command: bash -c "cd  /usr/src/app/src/utils && python3  /usr/src/app/src/manage.py"
+ 
+postgres:
+  ports:
+    - "5432:5432"
