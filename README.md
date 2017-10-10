@@ -1,4 +1,4 @@
-## Dockerizing Flask With Compose and Machine - From Localhost to the Cloud - Lucas Barros and Felipe Fernandes
+## Dockerizing Flask With Compose and Machine - From Localhost to the Cloud - Lucas Barros
 
 Steps:
 1. First initializing docker-machine
